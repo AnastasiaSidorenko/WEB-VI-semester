@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        Personal site of Sidorenko Анастасии. <?=$title?>
+        Personal site of Sidorenko Anastasiia. <?=$title?>
     </title>
     <link href="/public/assets/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gabriela|Roboto+Slab" rel="stylesheet">

@@ -11,6 +11,6 @@ include("app/core/Controller.php");
 class GalleryController extends Controller
 {
     public function index(){
-        echo $this->view->render("gallery.php","Фотоальбом","gallery",$this->model);
+        echo $this->view->render("gallery.php","Gallery","gallery",$this->model);
     }
 }

@@ -46,7 +46,7 @@ function LocalStorage(id){
 }
 
 function CreateTableAllTimeHistory(){
-	var pages = Array('home', 'about', 'interests', 'studies', 'gallery',  'contact','test');
+	var pages = Array('home', 'about', 'interests', 'studies', 'gallery', 'contact','test');
 	body = document.body;
 	div_all_time = document.createElement('div');
 	div_all_time.className="history";

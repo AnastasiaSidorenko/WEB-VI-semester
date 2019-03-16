@@ -1,0 +1,95 @@
+*{font-family: 'Roboto','Gabriela'}
+a{text-decoration:none;outline:none}
+a:link{color: #3D2145}
+.menu{color: #3D2145}
+a:visited{color: #3D2145}
+a:hover{color: #DDB4E8}
+.menu p:hover{color: #DDB4E8;
+			  cursor:pointer}
+	header{
+		background:#914EA3;
+		text-align:left;
+	}
+	ul{
+		margin: 0;
+	}
+	textarea { 
+		resize: none; 
+		overflow: auto; 
+	}
+    .menu-item{
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+	ul.menu li{
+		font-family: Gabriela;
+		display: inline-block;
+		background:#8B4A9C;
+		padding: 6px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		font-size:26px;
+	}
+	ul.int li{
+		font-size:26px;
+		color: #5D3269;
+	}
+	body li{
+		font-family: Gabriela;
+	}
+	body{
+		background:#B492BD;
+		font-family: Roboto;
+	}
+	.photoalbum table{
+		margin: auto;
+		text-align: center;
+	}
+	.interests p{
+		font-size: 30px;
+		color:#3D2145;
+	}
+	.interests ul{
+		font-size: 26px;
+		color:#3D2145;
+	}
+	h2,h3{
+		color:#3D2145;
+		text-align: center;
+	}
+	.autobiography p{
+		font-size: 20px;
+	}
+	.studies{
+		margin: auto;
+		background-color:#9F52B2;
+		border: 3px solid black;
+		border-collapse:collapse;
+	}
+	.studies TD,TR,TH{
+		width:250px;
+		text-align: center;
+		border-collapse: collapse;
+		border: 1px solid black;
+	}
+	.block table{
+		border: 2px solid black;
+	}
+	.block{
+		width: 870px;
+	}
+	.submenu {
+		background:#8B4A9C;
+		width:147px;
+		position:absolute;
+        visibility:hidden;
+		top:58px;
+		z-index:5;
+		padding: 4px;
+		cursor:pointer;
+	}
+	.history{
+		text-align:center;
+		font-size:28px;
+	}

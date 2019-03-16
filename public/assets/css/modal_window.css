@@ -1,0 +1,86 @@
+	.overlay {
+		position:absolute;
+		width:100%;
+		height:100%;
+		top:0;
+		left:0;
+		display:none;
+	}
+	.popup {
+		position:absolute;
+		width:400px;
+		left:50%;
+		top:50%;
+		transform:translate(-50%,-50%);
+		padding:40px;
+		box-sizing:border-box;
+		background-color:#DDB4E8;
+		color:#3D2145;
+	}
+	.button_yes_no {
+		margin-right:120px;
+		margin-left:120px;
+		margin-top:20px;
+	}
+	
+	.lightbox {
+		display: none;
+		position:fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		overflow-y: auto;
+	}
+	.overlay_photo {
+		position: absolute;
+		z-index:-1;
+		width:100%;
+		height:100%;
+		top:0;
+		left:0;
+		background-color: rgba(0,0,0,.8);
+	}
+	.next {
+		text-align: center;
+		font-size: 30px;
+		color: white;
+		padding: 25px;
+		cursor: pointer;
+	}
+
+	.prev {
+		text-align: center;
+		font-size: 30px;
+		color: white;
+		padding: 25px;
+		cursor: pointer;
+	}
+
+	.close {
+		text-align: center;
+		font-size: 25px;
+		color: white;
+		padding: 15px;
+		cursor: pointer;
+	}
+	
+	//FOR POPOVER
+	.overlay_pop_over{
+		position:absolute;
+		width:100%;
+		height:100%;
+		top:0;
+		left:0;
+		display:none;
+	}
+	.popup_pop_over{
+		position:absolute;
+		width:300px;
+		transform:translate(-50%,-50%);
+		padding:5px;
+		box-sizing:border-box;
+		background-color:#DDB4E8;
+		color:#3D2145;
+	}

@@ -1,19 +1,3 @@
-<header><nav>
-		<ul class="menu" id="menu" value="6">
-            <li><a href="/home/index" id="0" onMouseOver="MouseOver(id)" onMouseOut="Revert()">Home page</a></li>
-            <li><a href="/about/index" id="1" onMouseOver="MouseOver(id)" onMouseOut="Revert()">About me</a></li>
-            <li><p id="2" class="menu-item" onMouseOver="MouseOver(id)" onMouseOut="Revert()" OnClick="Toggle()">
-                    My Interests</p>
-                <script>SubMenu();</script>
-            </li>
-            <li><a href="/gallery/index" id="3" onMouseOver="MouseOver(id)" onMouseOut="Revert()">Gallery</a></li>
-            <li><a href="/studies/index" id="4" onMouseOver="MouseOver(id)" onMouseOut="Revert()">Studies</a></li>
-            <li><a href="/contact/index" id="5" onMouseOver="MouseOver(id)" onMouseOut="Revert()">Contact</a></li>
-            <li><a href="/test/index" id="6" onMouseOver="MouseOver(id)" onMouseOut="Revert()">Test</a></li>
-            <li><a href="/history/index" id="7">Browsing history</a></li>
-		</ul>
-		<span id="time"><script>ShowDate();</script></span>
-	</nav></header>
 	<div class="block">
 		<h2>Тест - Основы программирования и алгоритмические языки</h2>
 		<form method="post" action="validate" name="toTest">
@@ -23,29 +7,29 @@
 					<p><label>Группа</label>
 					<select name="Groups">
 						<optgroup label="1 курс">
-							<option value="11">ИС-11
-							<option value="12">ИС-12
-							<option value="13">ИС-13
+							<option value="ИС-11">ИС-11
+							<option value="ИС-12">ИС-12
+							<option value="ИС-13">ИС-13
 						</optgroup>
 							<optgroup label="2 курс">
-							<option value="21">ИС-21
-							<option value="22">ИС-22
-							<option value="23">ИС-23
+							<option value="ИС-21">ИС-21
+							<option value="ИС-22">ИС-22
+							<option value="ИС-23">ИС-23
 						</optgroup>
 						<optgroup label="3 курс">
-							<option value="31">ИС-31
-							<option value="32">ИС-32
-							<option value="33">ИС-33
+							<option value="ИС-31">ИС-31
+							<option value="ИС-32">ИС-32
+							<option value="ИС-33">ИС-33
 						</optgroup>
 						<optgroup label="4 курс">
-							<option value="41">ИС-41
-							<option value="42">ИС-42
-							<option value="43">ИС-43
+							<option value="ИС-41">ИС-41
+							<option value="ИС-42">ИС-42
+							<option value="ИС-43">ИС-43
 						</optgroup>
 					</select>
 				</p>
 			</fieldset>
-			<p>1. Phython это?</p>
+			<p>1. Python это?</p>
 			<p><input type="checkbox" name="option1" value="language">Язык программирования<Br>
 			<p><input type="checkbox" name="option2" value="animal">Животное класса пресмыкающиеся<Br>
 			<p>2.Язык программирования - это:</p>
@@ -76,9 +60,38 @@
 							<option value="6">способ общения программистов между собой
 						</optgroup>
 					</select>
-			<p><label>3. Что такое класс</label></p>
+			<p><label>3. Класс это образ сущности, имеющий ... и методы</label></p>
 			<p><input type="text" name="question3" size="100"></p>
 			<p><input type="submit" value="Отправить">
 			<input type="reset" value="Очистить форму"></p>
 		</form>
 	</div>
+    <?php
+    if(isset($_SESSION['FIO'])){
+    $res = TestModel::findAll();
+        echo "<div class='studies'>";
+            echo "<table>";
+                echo "<TR>";
+                    echo "<TD>";
+                        echo "Дата";
+                    echo "</TD>";
+                    echo "<TD>ФИО</TD>";
+                    echo "<TD>Группа</TD>";
+                    echo "<TD>Вопрос 1</TD>";
+                    echo "<TD>Вопрос 2</TD>";
+                    echo "<TD>Вопрос 3</TD>";
+                echo "</TR>";
+            foreach($res as $value){
+                echo "<TR>";
+                    echo "<TD>$value->date</TD>";
+                    echo "<TD>$value->fio</TD>";
+                    echo "<TD>$value->group</TD>";
+                    echo "<TD>$value->question1</TD>";
+                    echo "<TD>$value->question2</TD>";
+                    echo "<TD>$value->question3</TD>";
+                echo "</TR>";
+            }
+            echo "</table>";
+        echo "</div>";
+        }
+    ?>

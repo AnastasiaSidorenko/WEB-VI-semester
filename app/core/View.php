@@ -8,7 +8,7 @@
 
 class View
 {
-    function render($content_view, $title,$name_page, $model = NULL, $layout = 'layout.php'){
-        include 'app/views/'.$layout;
+    function render($content_view, $title,$name_page, $model = NULL, $layout = 'views/layout.php'){
+        include 'app/'.$layout;
     }
 }

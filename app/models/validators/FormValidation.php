@@ -46,6 +46,24 @@ class FormValidation
                     $this->errors["field"] = "Заполнены не все поля";
                 }
                 break;
+            case("registration")  :
+                if(count($post_array)!=4){
+                    $this->errors["field"] = "Все поля обязательны к заполнению";
+                }
+                break;
+            case("authorization"):
+                if(count($post_array)<2){
+                    $this->errors["field"]="Незаполненое поле";
+                }
+                return;
+            case("Create_Blog_Entry"):
+                if(!$post_array['blog_entry_title']){
+                    $this->errors["field_title"] = "Не введена тема записи";
+                }
+                if(!$post_array['blog_entry_text']){
+                    $this->errors["field_text"] = "Не введен текст записи";
+                }
+                return;
         }
         foreach($post_array as $key => $value){
             if($this->isNotEmpty($value,$key)){
@@ -58,10 +76,16 @@ class FormValidation
             }
         }
     }
-    public function ShowErrors(){
+    public function GetErrorsQuantity(){
+        return count($this->errors);
+    }
+    public function setError($key,$value){
+        $this->errors[$key]=$value;
+    }
+    public function ShowErrors($message){
         $errors="<div id='validation'";
         if(count($this->errors)==0){
-            $errors.="<p style='color:green; font-size:22px;'>Ваше сообщение будет отправлено </p>";
+            $errors.="<p style='color:green; font-size:22px;'>$message</p>";
         }
         else{
             foreach($this->errors as $error=>$value){

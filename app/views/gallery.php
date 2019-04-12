@@ -1,12 +1,6 @@
-<header><nav>
-	        <ul class="menu" id="menu" value="3">
-	    	<li><a href="/home/index" id= "0" onMouseOver="MouseOver(id)" onMouseOut="Revert()">Home page</a></li>
-        	</ul>
-	        <span id="time"><script>ShowDate();</script></span>
-        </nav></header>
-    </main>
-    <div>
+ <div>
         <?php
-        $model->show_gallery();
+        include $_SERVER['DOCUMENT_ROOT']."/public/assets/php/gallery_script.php";
+        show_gallery($model->GetPhotos(),$model->GetTitles());
         ?>
     </div>

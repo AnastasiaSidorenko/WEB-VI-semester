@@ -64,7 +64,7 @@ a:hover{color: #DDB4E8}
 	.studies{
 		margin: auto;
 		background-color:#9F52B2;
-		border: 3px solid black;
+		border: 3px solid grey;
 		border-collapse:collapse;
 	}
 	.studies TD,TR,TH{
@@ -92,4 +92,78 @@ a:hover{color: #DDB4E8}
 	.history{
 		text-align:center;
 		font-size:28px;
+	}
+	.decor-photo img{;
+		border:4px solid #914A89;
+	}
+	.blog{
+		display:flex;
+		flex-flow: row nowrap;
+		background-color:#B874AC;
+	}
+	.title_blog{
+		font-size:22px;
+		display:flex;
+		flex-flow: row nowrap;
+		align-items:center;
+		background-color:#AA57A0;
+		height:34px;
+		margin-bottom: 0px;
+	}
+	.title_blog h2{
+		margin-left:10px;
+	}
+	.blog_body{
+		margin-left:10px;
+		background-color:#B874AC;
+	}
+	.blog_photo img{
+		height:300px;
+	}
+	hr{
+		border:none;
+		background-color:#B492BD;
+		height:3px;
+	}
+	.blog_num_links{
+		display:flex;
+		flex-flow:nowrap;
+		justify-content: center;
+	}
+	.blog_num_links div{
+		margin-left:2px;
+		margin-right:2px;
+		color:darkslategrey;
+	}
+	.blog_num_links div a{
+		margin:0 1px 0 1px;
+		color:#6B0A65;
+	}
+    .flex_stretch_table table{
+        display:flex;
+        margin: auto;
+        background-color:#B874AC;
+        border: 3px solid grey;
+        border-collapse:collapse;
+    }
+    .flex_stretch_table TH,TR,TD{
+        text-align: center;
+        border-collapse: collapse;
+        border: 1px solid black;
+        justify-content:flex-start;
+    }
+    .registration{
+        display:flex;
+        justify-content:center;
+		text-align:center;
+    }
+	.auth p{
+		text-align:right;
+	}
+	.quit{
+		text-align:center;
+	}
+	.user_fio{
+		display: flex;
+		justify-content: right;
 	}

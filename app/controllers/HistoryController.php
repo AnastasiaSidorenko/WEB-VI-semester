@@ -11,6 +11,6 @@ include("app/core/Controller.php");
 class HistoryController extends Controller
 {
     public function index(){
-        echo $this->view->render("history.php","Browsing history",null);
+        echo $this->view->render("history.php","Browsing history","history");
     }
 }

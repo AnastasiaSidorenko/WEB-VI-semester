@@ -1,24 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nastya
- * Date: 3/13/19
- * Time: 5:46 PM
- */
 
-include("app/core/Model.php");
+include("app/core/BaseActiveRecord.php");
 
-class InterestsModel extends Model
+class InterestsModel extends BaseActiveRecord
 {
-    public $hobbies=["Плавание","Изучения языков","Личные исследования"];
-    public $books=["Карлос Кастанеда &quotПутешествие в Икстлан&quot","Карлос Кастанеда &quotСказки о силе&quot",
+    private $hobbies=["Плавание","Изучения языков","Личные исследования"];
+    private $books=["Карлос Кастанеда &quotПутешествие в Икстлан&quot","Карлос Кастанеда &quotСказки о силе&quot",
 			"Карлос Кастанеда &quotСила безмолвия&quot","Карлос Кастанеда &quotАктивная сторона бесконечности&quot","Роберт Монро &quotДалёкие путешествия&quot",
 			"Роберт Монро &quotОкончательное путешествие&quot","Владимир Серкин &quotЗвёзды Шамана&quot","Слава Курилов &quotОдин в Океане&quot"];
-    public $music = ["Классическая","Музыка жанра New age","Израильская музыка"];
+    private $music = ["Классическая","Музыка жанра New age","Израильская музыка"];
 
-    function Interests_Output($args){
+    public function GetHobbies()
+    {
+    return $this->hobbies;
+    }
+    public function GetBooks(){
+        return $this->books;
+    }
+    public function GetMusic(){
+        return $this->music;
+    }
+    /*function Interests_Output($args){
         foreach($args as $item) {
             echo "<li>$item</li>";
         }
-    }
+    }*/
 }

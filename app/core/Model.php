@@ -1,11 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nastya
- * Date: 3/2/19
- * Time: 12:27 PM
- */
-include("app/models/validators/FormValidation.php");
+
+include $_SERVER['DOCUMENT_ROOT']."/app/models/validators/FormValidation.php";
 
 class Model
 {

@@ -1,7 +1,6 @@
 <?php
-function litems(...$args)
-{
-    foreach ($args as $arg) {
-        echo "<li>$arg</li>";
+function Interests_Output($args){
+    foreach($args as $item) {
+        echo "<li>$item</li>";
     }
 }

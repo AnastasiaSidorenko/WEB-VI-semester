@@ -1,14 +1,14 @@
-function MouseOver(id){
-	var page_id=document.getElementById("menu").getAttribute("value");
-	if(id!=page_id){
-		document.getElementById(id).addEventListener("mouseover",ChangeColor(),true);
-		};
-};
-function ChangeColor(){document.body.style.background='#A864AD';}
-function Revert(){document.body.style.background='#B492BD';}
+// function MouseOver(id){
+// 	var page_id=document.getElementById("menu").getAttribute("value");
+// 	if(id!=page_id){
+// 		document.getElementById(id).addEventListener("mouseover",ChangeColor(),true);
+// 		};
+// };
+// function ChangeColor(){document.body.style.background='#A864AD';}
+// function Revert(){document.body.style.background='#B492BD';}
 
 function SubMenu(){
-    var $Interests = $('#2');
+    var $Interests = $('#int_item');
     var	$ul = $('<ul>',{
         id:"sub",
         class:"submenu"

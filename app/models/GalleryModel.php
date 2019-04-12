@@ -1,21 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nastya
- * Date: 3/13/19
- * Time: 5:45 PM
- */
-include("app/core/Model.php");
 
-class GalleryModel extends Model
+include("app/core/BaseActiveRecord.php");
+
+class GalleryModel extends BaseActiveRecord
 {
-public $titles=["Цветы на стене Воронцовского дворца","Чёрное море","Трава в октябре","Я в Ялте","Воронцовский дворец(Алупка)","Пустыня Негев(Израиль)",
+private $titles=["Цветы на стене Воронцовского дворца","Чёрное море","Трава в октябре","Я в Ялте","Воронцовский дворец(Алупка)","Пустыня Негев(Израиль)",
 "на Набережной Севастополя","Памятник затопленным кораблям","на Херсонесе","Фиолент","Я возле роз","Роза","У аэропорта в Симферополе","Цветущая вишня",
 "Петунии в Ноябрьске"];
-public $photos=["01.png","02.png","03.png","11.png","12.png","13.png","21.png","22.png","23.png","31.png","32.png","33.png","41.png","42.png","43.png"];
-public $extanded=["01.jpg","02.jpg","03.jpg","11.jpg","12.jpg","13.jpg","21.jpg","22.jpg","23.jpg","31.jpg","32.jpg","33.jpg","41.jpg","42.jpg","43.jpg"];
+private $photos=["01.png","02.png","03.png","11.png","12.png","13.png","21.png","22.png","23.png","31.png","32.png","33.png","41.png","42.png","43.png"];
+private $extanded=["01.jpg","02.jpg","03.jpg","11.jpg","12.jpg","13.jpg","21.jpg","22.jpg","23.jpg","31.jpg","32.jpg","33.jpg","41.jpg","42.jpg","43.jpg"];
 
-    function show_gallery(){
+public function GetTitles(){
+    return $this->titles;
+}
+public function GetPhotos(){
+    return $this->photos;
+}
+
+    /*function show_gallery(){
         $counter_photos = 0;
         $q=0;
         $directory="/public/assets/img/";
@@ -34,5 +36,5 @@ public $extanded=["01.jpg","02.jpg","03.jpg","11.jpg","12.jpg","13.jpg","21.jpg"
             }
         }
         echo "</table></div>";
-    }
+    }*/
 }

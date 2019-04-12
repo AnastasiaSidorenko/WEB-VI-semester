@@ -1,23 +1,27 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nastya
- * Date: 3/13/19
- * Time: 5:59 PM
- */
 
-include("app/core/Model.php");
+include("app/core/BaseActiveRecord.php");
 include("app/models/validators/ResultsVerification.php");
+include('config.ini.php');
 
-class TestModel extends Model
+class TestModel extends BaseActiveRecord
 {
+   public $id;
+   public $date;
+   public $fio;
+   public $group;
+   public $question1;
+   public $question2;
+   public $question3;
+   public $answer1;
+   public $answer2;
+   public $answer3;
+   public $message = "Вы успешно прошли тест";
+
+   protected static $table='Test';
+
     function __construct(){
         parent::__construct();
         $this->validator = new ResultsVerification();
-    }
-    function validate($post_data, $form_name)
-    {
-        parent::validate($post_data, $form_name);
-        $this->validator->checkTest($this->post_data);
     }
 }

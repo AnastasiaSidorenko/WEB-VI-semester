@@ -1,6 +1,6 @@
 <?php
 
-include("../app/core/FormValidation.php");
+include_once $_SERVER['DOCUMENT_ROOT']."/app/models/validators/FormValidation.php";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $validator = new FormValidation();

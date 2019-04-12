@@ -1,34 +1,41 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nastya
- * Date: 3/13/19
- * Time: 6:13 PM
- */
 
 class ResultsVerification extends FormValidation
 {
-    public function checkTest($post_array){
-        if($post_array['option1']!="language") {
+    public function checkTest($post_array) {
+        if(count($this->errors)==0){
+            $test = new TestModel();
+            $test->fio = $post_array['fio'];
+            $test->date = date('d.m.y');
+            $test->group = $post_array['Groups'];
+        }
+        if($post_array['option1'] != "language") {
+            $test->question1 = "Неверно";
             $this->errors["первый вопрос"] = "Неверно";
         }
+        else{
+            $test->question1 = "Верно";
+        }
         if($post_array['Groups2'] != "4") {
+            $test->question2 = "Неверно";
             $this->errors["второй вопрос"] = "Неверно";
         }
-        if(!$post_array['question3']) {
-            $this->errors["третий вопрос"] = "Нет ответа";
+        else{
+            $test->question22 = "Верно";
         }
-        /*else{
-            $this->errors["Ответ на третий вопрос"] = "Класс это образ сущности (объекта) имеющий определенные свойства (поля) и функции (методы) для работы с этими свойствами";
-        }*/
+        if($post_array['question3'] != "поля") {
+            $test->question3 = "Неверно";
+            $this->errors["третий вопрос"] = "Неверно";
+        }
+        else{
+            $test->question3 = "Верно";
+        }
+        $test->save();
     }
     public function showErrors(){
         $errors="<div id='valid'";
         if(count($this->errors)==0){
-            $errors.="<p style='color: green; font-size: 22px;'> Ответ на третий вопрос :<br>
-Класс это образ сущности (объекта), имеющий определенные свойства (поля)<br> 
-и функции (методы) для работы с этими свойствами<br><br>
-Тест пройден! </p>";
+            $errors.="<p style='color: green; font-size: 22px;'><br> Тест пройден! </p>";
         }
         else{
             foreach($this->errors as $error => $value)
@@ -36,12 +43,6 @@ class ResultsVerification extends FormValidation
         }
         return $errors."</div>";
     }
-/*var question3 = document.forms.ToTest.question3.value;
-Reg_FLOAT=/^[-]?[0-9]{1,}[.,][0-9]{1,}$/;
-	if(!(Reg_FLOAT.test(question3))){
-        alert("Error. Неверное формат ответа на вопрос №3");
-        document.forms.ToTest.question3.focus();
-        return false;
-    }
-	return true;*/
+
+
 }

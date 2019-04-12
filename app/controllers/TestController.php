@@ -11,5 +11,4 @@ class TestController extends Controller
         $this->model->validate($_POST,"toTest");
         echo $this->view->render("validate.php","Test","test",$this->model);
     }
-
 }

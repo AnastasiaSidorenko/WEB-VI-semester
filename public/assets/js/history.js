@@ -46,7 +46,7 @@ function LocalStorage(id){
 }
 
 function CreateTableAllTimeHistory(){
-	var pages = Array('home', 'about', 'interests', 'studies', 'gallery', 'contact','test');
+	var pages = Array('home', 'about', 'interests', 'gallery', 'studies', 'contact','test');
 	body = document.body;
 	div_all_time = document.createElement('div');
 	div_all_time.className="history";
@@ -55,10 +55,10 @@ function CreateTableAllTimeHistory(){
 	body.appendChild(div);
 	div.id='cookies';
 	
-	for (var i = 0; i < pages.length; i++) {
+	/*for (var i = 0; i < pages.length; i++) {
 		var iValue = getCookie[pages[i]] || 0;
 		setCookie(pages[i], iValue);
-	}
+	}*/
 	var table = document.createElement('table');
 	div.appendChild(table);
 	

@@ -10,6 +10,6 @@ include("app/core/Controller.php");
 class HomeController extends Controller
 {
     public function index(){
-        echo $this->view->render("home_page.php","Главная страница","home");
+        echo $this->view->render("home_page.php","Home page","home");
     }
 }

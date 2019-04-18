@@ -154,8 +154,8 @@ a:hover{color: #DDB4E8}
     }
     .registration{
         display:flex;
-        justify-content:center;
-		text-align:center;
+        margin-left:35%;
+		/*text-align:center;*/
     }
 	.auth p{
 		text-align:right;
@@ -166,4 +166,15 @@ a:hover{color: #DDB4E8}
 	.user_fio{
 		display: flex;
 		justify-content: right;
+	}
+	.login_div{
+		display:flex;
+		height:60px;
+	}
+	.login_div >div{
+		display:flex;
+		margin-left: 10px;
+	}
+	.comment_author{
+		margin-left:10%;
 	}

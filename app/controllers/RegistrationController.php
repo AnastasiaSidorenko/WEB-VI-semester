@@ -22,4 +22,9 @@ class RegistrationController extends Controller
         }
         echo $this->view->render("validate.php","User Registration","registration",$this->model);
     }
+    public function checkLogin()
+    {
+        $result = $this->model->findLogin($_POST['login']);
+        echo "$result";
+    }
 }

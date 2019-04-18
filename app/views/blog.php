@@ -1,4 +1,7 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT']."/app/models/CommentModel.php";
+echo "<script src=\"/public/assets/js/Blog_Comment_Script.js\"></script>";
+
     $max_page=5;
     $per_page=2;
     $quantity=BlogModel::countRecords();
@@ -8,8 +11,10 @@
     $start = abs($page*$per_page);
 
     $blog_entries = BlogModel::getRecords($start,$per_page);
+    $blog_comments = CommentModel::findAll();
     if($blog_entries) {
         foreach ($blog_entries as $value) {
+            echo "<div class='blog_entry' id='$value->id'>";
             echo "<div class='title_blog'><p>$value->date</p>
                 <h2>$value->title</h2></div>";
             echo "<div class='blog'>";
@@ -18,6 +23,19 @@
             }
             echo "<div class='blog_body'><p>" . $value->body . "</p></div>";
             echo "</div>";
+            //if(isset($_SESSION['FIO'])
+            echo "<button class='leave_comment' id='$value->id' onClick=\"GenerateCommentDiv($value->id)\"> Добавить комментарий </button>";
+            echo "</div>";
+            $entry_id=$value->id;
+
+            foreach ($blog_comments as $value){
+                if($entry_id==$value->entry){
+                    echo "<div class='comment'><p>$value->date
+                    <span class='comment_author'>$value->author</span><p>";
+                    echo "<div>$value->comment</div>";
+                    echo "</div>";
+                }
+            }
             echo "<hr>";
         }
         $num_pages = ceil($quantity/$per_page);

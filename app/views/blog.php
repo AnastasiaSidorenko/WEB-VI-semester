@@ -1,6 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']."/app/models/CommentModel.php";
-echo "<script src=\"/public/assets/js/Blog_Comment_Script.js\"></script>";
+echo "<script type='text/javascript' language='javascript' src=\"/public/assets/js/Blog_Comment_Script.js\"></script>";
 
     $max_page=5;
     $per_page=2;
@@ -14,7 +14,8 @@ echo "<script src=\"/public/assets/js/Blog_Comment_Script.js\"></script>";
     $blog_comments = CommentModel::findAll();
     if($blog_entries) {
         foreach ($blog_entries as $value) {
-            echo "<div class='blog_entry' id='$value->id'>";
+            //var_dump($key);
+            echo "<div class='blog_entry' id='blog_entry_".$value->id."'>";
             echo "<div class='title_blog'><p>$value->date</p>
                 <h2>$value->title</h2></div>";
             echo "<div class='blog'>";
@@ -23,19 +24,26 @@ echo "<script src=\"/public/assets/js/Blog_Comment_Script.js\"></script>";
             }
             echo "<div class='blog_body'><p>" . $value->body . "</p></div>";
             echo "</div>";
-            //if(isset($_SESSION['FIO'])
-            echo "<button class='leave_comment' id='$value->id' onClick=\"GenerateCommentDiv($value->id)\"> Добавить комментарий </button>";
+            if(isset($_SESSION['FIO'])){
+                echo "<button class='leave_comment' id='$value->id' onClick=\"GenerateCommentDiv($value->id)\"> Добавить комментарий </button>";
+            }
             echo "</div>";
             $entry_id=$value->id;
 
-            foreach ($blog_comments as $value){
-                if($entry_id==$value->entry){
-                    echo "<div class='comment'><p>$value->date
-                    <span class='comment_author'>$value->author</span><p>";
-                    echo "<div>$value->comment</div>";
-                    echo "</div>";
+            echo "<div id='comments".$entry_id."'>";
+            if(is_array($blog_comments)) {
+                echo "<span>Комментарии:</span>";
+                foreach ($blog_comments as $smth) {
+                    if ($entry_id == $smth->entry) {
+                        echo "<div class='comment'>";
+                        echo "<div class='comment_a_t'><p>$smth->date_time
+                    <span class='comment_a'>$smth->author</span></p></div>";
+                        echo "<div>$smth->comment</div>";
+                        echo "</div>";
+                    }
                 }
             }
+            echo "</div>";
             echo "<hr>";
         }
         $num_pages = ceil($quantity/$per_page);
@@ -97,5 +105,3 @@ echo "<script src=\"/public/assets/js/Blog_Comment_Script.js\"></script>";
         echo "</div>";
     }
     else{ echo "<h3>No entries</h3>";}
-
-?>

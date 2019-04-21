@@ -175,6 +175,18 @@ a:hover{color: #DDB4E8}
 		display:flex;
 		margin-left: 10px;
 	}
-	.comment_author{
-		margin-left:10%;
+	.comment_a{
+		margin-left:2%;
+        border:2px dashed #9f5990;
+	}
+    .comment{
+        background-color: #bb7aaf;
+        font-size:20px;
+    }
+    .comment_a_t{
+        background-color: #ac6fa0;
+        /*border:0.5px dashed white;*/
+    }
+	.edit_entry {
+		margin-bottom: 0.7%;
 	}

@@ -35,9 +35,5 @@ session_start()
 <?php
     include 'app/admin/views/' . $content_view;
 ?>
-<div>
-    <script>LocalStorage("<?=$name_page ?>");</script>
-    <script>setCookie("<?=$name_page ?>");</script>
-</div>
 </body>
 </html>

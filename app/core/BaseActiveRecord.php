@@ -29,10 +29,10 @@ abstract class BaseActiveRecord extends Model
         if ($array_vars['id'] == NULL) {
             $create_query = 'INSERT INTO `' . static::$table . '`(' . implode(",", $fields_columns) . ') VALUES(' . implode(",", $values) . ')';
             $stmt = self::$pdo->prepare($create_query);
-           // var_dump($stmt);
+           //var_dump($stmt);
             try {
                 $stmt->execute();
-                //$stmt->debugDumpParams();
+               // $stmt->debugDumpParams();
             } catch (PDOException $exc) {
                 echo $exc->getMessage();
             }
@@ -43,6 +43,29 @@ abstract class BaseActiveRecord extends Model
             $s->bindParam(':id',$this->id);
             $s->execute();
         }
+        return $this;
+    }
+
+    public function update($id){
+        $query = 'SHOW COLUMNS FROM ' . static::$table;
+        $s = self::$pdo->prepare($query);
+        $s->execute();
+
+        $array_vars = get_object_vars($this);
+        $i=0;
+        foreach ($this as $value) {
+            if($) {
+                if ($array_vars[$i] == 'id') continue;
+                $update_array[] = "'array_obj[$array_vars[$i]']=`$value`"; //for update
+                $i++;
+            }
+        }
+
+
+        $query_update = 'UPDATE '. static::$table.' SET '.join(', ',$update_array).'WHERE id=:id';
+        $s = self::$pdo->prepare($query_update);
+        $s->bindParam(':id',$this->id);
+        $s->execute();
         return $this;
     }
 

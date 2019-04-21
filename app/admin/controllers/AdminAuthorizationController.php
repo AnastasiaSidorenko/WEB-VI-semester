@@ -1,5 +1,4 @@
 <?php
-
 include("app/admin/controllers/AdminController.php");
 
 class AdminAuthorizationController extends AdminController
@@ -16,14 +15,14 @@ class AdminAuthorizationController extends AdminController
             header('Location:/admin/blog/editor');
             exit;
         }
-        if($_POST['login']=='admin' && password_verify($_POST['password'],'$2y$10$Pno2oD6xfp95AvcbgO8raeh1M/egCEfaICrekidNwlR0DMySgOoB.')){
+        if($_POST['login']=='admin' && password_verify($_POST['password'],'$2y$10$IoB.PqSLp67n/90JqO0eHO4uqAPJUAPttIrUXWNNL9jXFcHuS30aK')){
             $_SESSION['isAdmin']=1;
-            header('Location:/admin/blog/editor');
-            exit;
-        } else{
-            header('Location:/admin/authorization/index');
-            exit;
         }
+        else{
+            $_SESSION['isAdmin']=0;
+        }
+        header('Location:/admin/blog/editor');
+        exit;
     }
     public function out(){
         session_destroy();

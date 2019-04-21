@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include("app/admin/views/View.php");
 include("app/models/StatisticModel.php");
 

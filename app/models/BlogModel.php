@@ -1,7 +1,7 @@
 <?php
 
-include("app/core/BaseActiveRecord.php");
-include('config.ini.php');
+include_once("app/core/BaseActiveRecord.php");
+include_once('config.ini.php');
 
 class BlogModel extends BaseActiveRecord
 {

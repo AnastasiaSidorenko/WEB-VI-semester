@@ -23,7 +23,9 @@ abstract class BaseActiveRecord extends Model
             if ($value == 'id') continue;
             $values[] = "'$array_vars[$value]'";
             $fields_columns[] = "`$value`";
-            $update_array[]="'array_obj[$value']=`$value`"; //for update
+            if($array_vars[$value]) {
+                $update_array[] = "`$value`='$array_vars[$value]'"; //for update
+            }
         }
 
         if ($array_vars['id'] == NULL) {
@@ -38,16 +40,22 @@ abstract class BaseActiveRecord extends Model
             }
         }
         else{
-            $query_update = 'UPDATE '. static::$table.' SET '.join(', ',$update_array).'WHERE id=:id';
+            $query_update = 'UPDATE '. static::$table.' SET '.join(', ',$update_array).' WHERE id=:id';
             $s = self::$pdo->prepare($query_update);
-            $s->bindParam(':id',$this->id);
-            $s->execute();
+            $s->bindParam(':id',$array_vars['id']);
+            try {
+                $s->execute();
+                $s->debugDumpParams();
+            }
+            catch(PDOException $exc){
+                echo $exc->getMessage();
+            }
         }
         return $this;
     }
 
     public function update($id){
-        $query = 'SHOW COLUMNS FROM ' . static::$table;
+        /*$query = 'SHOW COLUMNS FROM ' . static::$table;
         $s = self::$pdo->prepare($query);
         $s->execute();
 
@@ -67,6 +75,7 @@ abstract class BaseActiveRecord extends Model
         $s->bindParam(':id',$this->id);
         $s->execute();
         return $this;
+        */
     }
 
     public function delete()

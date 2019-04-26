@@ -29,13 +29,13 @@ if($blog_entries) {
     foreach ($blog_entries as $value) {
         //var_dump($key);
         echo "<div class='blog_entry' id='blog_entry_".$value->id."'>";
-        echo "<div class='title_blog'><p>$value->date</p>
-                <h2>$value->title</h2></div>";
+        echo "<div class='title_blog' ><p>$value->date</p>
+                <h2 id='blog_title".$value->id."'>$value->title</h2></div>";
         echo "<div class='blog'>";
         if ($value->image) {
             echo "<div class='blog_photo decor-photo'><img src='/uploads/$value->image' alt='Здесь должная быть картинка'></div>";
         }
-        echo "<div class='blog_body'><p>" . $value->body . "</p></div>";
+        echo "<div class='blog_body' id='blog_text_". $value->id. "'><p>" . $value->body . "</p></div>";
         echo "</div>";
 
         echo "<button class='edit_entry' id='$value->id' onClick=\"GenerateEditDiv($value->id)\"> Редактировать запись </button>";

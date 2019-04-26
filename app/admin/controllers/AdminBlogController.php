@@ -11,37 +11,28 @@ class AdminBlogController extends AdminController
         echo $this->view->render("blog_editor.php","Blog Editor","blog_editor");
     }
     public function edit_entry(){
-        if (isset($_POST['submit'])) {
-            $entry = new $this->model();
-            $id=$_POST['entry_id'];
+        $html = new DOMDocument();
+        $html->loadHTML($_GET['modifs']);
+        $blog = new BlogModel();
 
-            if($_POST['blog_entry_title']) {
-                $entry->title = $_POST['blog_entry_title'];
-            }
-            if($_POST['blog_entry_text']) {
-                $entry->body = $_POST['blog_entry_text'];
-            }
-            $entry->update($id);
-            header('Content-Type: text/html');
-            //echo "showResult($xml_string)";*/
+        $ti=$html->getElementByID('title');
+        $title=$ti->nodeValue;
 
-            //echo "<script type='application/javascript'>showResult($xml_string);</script>";
-            //echo "<script type='text/javascript'>test();</script>";
-            //echo "<script>showResult($xml_string);</script>";
-            // $callback=$_GET['callback'];
-            //echo $callback($xml_string);
-            //echo "showResult($xml_string)";
+        $te=$html->getElementByID('text');
+        $text=$te->nodeValue;
 
-           // $data = ['entry_id'=>$comment->entry,'err_Message'=>$err_Message,'err_Code'=>$err_Code,'FIO'=>$FIO,'date_time'=>$date_time,'text'=>$text];
+        $i=$html->getElementByID('id');
+        $id=$i->nodeValue;
 
-            header('Content-Type: text/javascript,application/json');
-            //$data=json_encode($data);
-
-            echo "parent.alert(smth)";
-            exit;
+        $blog->id=$id;
+        if($title){
+            $blog->title=$title;
         }
-        else{
-            echo "parent.alert(no smth)";
+        if($text){
+            $blog->body=$text;
         }
+        $blog->save();
+        echo "1";
+        exit;
     }
 }
